@@ -1,1 +1,1 @@
-# Rock-paper-scissors-game-using-html-scc-and-javascript
+# Rock-paper-scissors-game-using-html-css-and-javascript
