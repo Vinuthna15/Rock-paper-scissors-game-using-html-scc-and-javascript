@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.choices button {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+JavaScript (script.js):
+
+javascript
+Copy code
+const choices = ["rock", "paper", "scissors"];
+
+const computerChoice = () => {
+    const randomIndex = Math.floor(Math.random() * 3);
+    return choices[randomIndex];
+};
+
+const determineWinner = (userChoice, computerChoice) => {
+    if (userChoice === computerChoice) {
+        return "It's a tie!";
+    } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "paper" && computerChoice === "rock") ||
+        (userChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "You win!";
+    } else {
+        return "Computer wins!";
+    }
+};
+
+const updateUserChoice = (choice) => {
+    const resultElement = document.getElementById("result");
+    const computer = computerChoice();
+    const result = determineWinner(choice, computer);
+    resultElement.textContent = `You chose ${choice}, computer chose ${computer}. ${result}`;
+};
+
+document.getElementById("rock").addEventListener("click", () => updateUserChoice("rock"));
+document.getElementById("paper").addEventListener("click", () => updateUserChoice("paper"));
+document.getElementById("scissors").addEventListener("click", () => updateUserChoice("scissors"));
+This code structure separates the HTML, CSS, and JavaScript into separate files for better organization. Make sure to save the HTML as index.html, the CSS as styles.css, and the JavaScript as script.js in the same directory.
+
+
+
+
+
